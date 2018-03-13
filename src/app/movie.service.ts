@@ -12,7 +12,7 @@ export class MovieService {
   constructor(private http: HttpClient) { }
   
   getData(query: string){
-      return this.http.get(this.base_url + this.api + "&query=" + query)
+      return this.http.get(this.base_url + this.api + this.options + "&query=" + query)
   }
   
 
