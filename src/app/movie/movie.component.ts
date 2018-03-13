@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../movie.service';
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'app-movie',
@@ -9,12 +10,24 @@ import { MovieService } from '../movie.service';
 export class MovieComponent implements OnInit {
   data: any;
   savedMovie: any;
-  constructor(private _movie: MovieService) { }
+  savedMovies: any = [];
+  results: object;
+  searchTerm$ = new Subject<string>();
+  
+  constructor(private _movie: MovieService) {
+    this.updateResults();
+  }
   
   ngOnInit() {
     // this._movie.getData("Fight Club").subscribe(data => console.log(data))
   }
-
+  updateResults() {
+    this._movie.search(this.searchTerm$)
+      .subscribe(results => {
+        this.results = results.results;
+      });
+    console.log(this._movie.savedMovies);
+  }
   searchMovie(movie){
     this._movie.getData(movie)
       .subscribe(response => {
@@ -27,7 +40,9 @@ export class MovieComponent implements OnInit {
   
   selectMovie(saver){
     this.savedMovie = saver;
+    this._movie.savedMovies.push(this.savedMovie);
     console.log(this.savedMovie.title +" has been saved")
     console.log(this.savedMovie)
+    this.updateResults();
   }
 }
