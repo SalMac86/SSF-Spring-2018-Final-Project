@@ -5,7 +5,7 @@
 <input [(ngModel)]="movie" placeholder="Search for Movie" (keyup)="searchMovie(movie)">
 
 <div *ngIf="data">
-    <div *ngFor="let movie of data">
-        {{ movie.title }}
+    <div *ngFor="let flick of data">
+        <DIV (click)="selectMovie(flick)">{{ flick.title }}</DIV>
     </div>
 </div>

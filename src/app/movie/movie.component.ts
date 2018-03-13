@@ -8,8 +8,9 @@ import { MovieService } from '../movie.service';
 })
 export class MovieComponent implements OnInit {
   data: any;
+  savedMovie: any;
   constructor(private _movie: MovieService) { }
-
+  
   ngOnInit() {
     // this._movie.getData("Fight Club").subscribe(data => console.log(data))
   }
@@ -22,5 +23,11 @@ export class MovieComponent implements OnInit {
         console.log(this.data)
       }
       )
+  }
+  
+  selectMovie(saver){
+    this.savedMovie = saver;
+    console.log(this.savedMovie.title +" has been saved")
+    console.log(this.savedMovie)
   }
 }
