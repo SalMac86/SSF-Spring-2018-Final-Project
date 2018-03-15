@@ -6,7 +6,7 @@
 <button (click)="searchMovie(movie)">Search for Movie</button>
 
 <div *ngIf="data">
-    <div *ngFor="let flick of data | slice:0:9)">
+    <div *ngFor="let flick of data | slice:0:9">
         <DIV (click)="selectMovie(flick)">{{ flick.title }}</DIV>
     </div>
 </div>
