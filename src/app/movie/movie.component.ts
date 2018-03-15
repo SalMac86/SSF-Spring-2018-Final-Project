@@ -19,7 +19,7 @@ export class MovieComponent implements OnInit {
     this._movie.getData(movie)
       .subscribe(response => {
         console.log(response)
-        this.data = response.results
+        this.data = response["results"]
         console.log(this.data)
       }
       )
