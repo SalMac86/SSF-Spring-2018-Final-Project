@@ -24,15 +24,16 @@ export class MovieComponent implements OnInit {
   updateResults() {
     this._movie.search(this.searchTerm$)
       .subscribe(results => {
-        this.results = results.results;
+        this.results = results["results"];
       });
     console.log(this._movie.savedMovies);
   }
+
   searchMovie(movie){
     this._movie.getData(movie)
       .subscribe(response => {
         console.log(response)
-        this.data = response.results
+        this.data = response["results"];
         console.log(this.data)
       }
       )
