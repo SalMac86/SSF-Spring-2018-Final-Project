@@ -1,0 +1,8 @@
+<p>
+    favorites works!
+</p>
+<ol *ngIf="favorites">
+    <li *ngFor="let fave of favorites">
+        {{ fave.title }}
+    </li>
+</ol>

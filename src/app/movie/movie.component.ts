@@ -9,6 +9,7 @@ import { MovieService } from '../movie.service';
 export class MovieComponent implements OnInit {
   data: any;
   savedMovie: any;
+  
   constructor(private _movie: MovieService) { }
   
   ngOnInit() {
@@ -27,6 +28,7 @@ export class MovieComponent implements OnInit {
   
   selectMovie(saver){
     this.savedMovie = saver;
+    this._movie.favorites.push(saver);
     console.log(this.savedMovie.title +" has been saved")
     console.log(this.savedMovie)
   }

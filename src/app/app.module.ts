@@ -11,6 +11,7 @@ import { AboutComponent } from "./about/about.component";
 import { MovieComponent } from './movie/movie.component';
 import { MovieService } from './movie.service';
 import { HttpClientModule} from '@angular/common/http';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { HttpClientModule} from '@angular/common/http';
         AppComponent,
         AboutComponent,
         HomeComponent,
-        MovieComponent
+        MovieComponent,
+        FavoritesComponent
     ],
     imports: [
         BrowserAnimationsModule,
